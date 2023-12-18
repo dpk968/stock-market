@@ -1,0 +1,65 @@
+
+.landing-page {
+    background-color: #2196f3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .stock-market-img {
+    background-image: url("https://github.com/dpk968/D2NoteMaking/blob/master/D2.jpg");
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .content-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .content-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .buttons-container {
+    display: flex;
+  }
+  
+  .sign-up-button,
+  .connect-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sign-up-button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .connect-button {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .sign-up-button:hover,
+  .connect-button:hover {
+    opacity: 0.8;
+  }
+  
