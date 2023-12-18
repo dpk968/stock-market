@@ -1,65 +1,205 @@
-
 .landing-page {
-    background-color: #2196f3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    height: 100vh;
+  background: linear-gradient(to right top, #02121f, #001f81);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  /* height: 100vh; */
+}
+
+.image-container {
+  flex: 1;
+}
+
+.stock-market-img {
+  background-image: url("../img/D2.png");
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+  /* margin:30px; */
+}
+
+.content-container h1 {
+  font-size: 2rem;
+  /* margin-bottom: 20px; */
+}
+
+.content-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.buttons-container {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.sign-up-button,
+.connect-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: solid 1px #006bf1;
+  border-radius: 30px;
+  /* width: 50px; */
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+}
+
+.sign-up-button:hover,
+.connect-button:hover {
+  /* opacity: 0.8; */
+  background-color: #006bf1;
+  border: none;
+  color: #fff;
+}
+
+.home-screen-second-panel {
+  padding: 20px 100px;
+  background-color: #02121f;
+  font-family: "Roboto";
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-content,
+.right-content {
+  padding: 0 20px;
+}
+.small-ball-anime img {
+  position: relative;
+  animation: moveBackAndForth 5s ease-in-out infinite;
+}
+
+@keyframes moveBackAndForth {
+  0%,
+  100% {
+    transform: translateX(0);
   }
-  
-  .image-container {
-    flex: 1;
+  50% {
+    transform: translateX(100px);
   }
-  
-  .stock-market-img {
-    background-image: url("https://github.com/dpk968/D2NoteMaking/blob/master/D2.jpg");
+}
+.paragraph-with-dots {
+  position: relative;
+  padding: 20px;
+  width: fit-content;
+}
+
+.paragraph-with-dots::before,
+.paragraph-with-dots::after {
+  background: #00c4f4;
+  border-radius: 50%;
+  content: "";
+  height: 10px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+}
+
+.paragraph-with-dots::before {
+  left: 0;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.paragraph-with-dots::after {
+  left: auto;
+  right: 0;
+}
+
+.token-btn {
+  background-color: transparent;
+  border: 2px solid skyblue;
+  border-radius: 30px;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.token-btn:hover {
+  color: #00b1de;
+  border: 2px solid #009fde;
+}
+
+.chart-container {
+  background-image: url("../img/earth.jpg");
+  background-position: 50%;
+  background-size: cover;
+  padding: 130px 0;
+}
+.container {
+  max-width: 550px;
+  min-width: 400px;
+}
+.chart-statics {
+  background: #0b1d33;
+  border-radius: 20px;
+  padding: 50px 45px;
+  text-align: center;
+}
+.chart-statics img {
+  margin-bottom: 75px;
+}
+.chart-statics ul {
+  list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+}
+li {
+  display: flex;
+  align-items: center;
+  width: 48%; 
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+li::before {
+  content: '\2022'; 
+  color: skyblue; 
+  font-size: 1.5em; 
+  margin-right: 8px; 
+}
+.chart-statics ul li:before {
+  background: #005f73;
+  border-radius: 50%;
+  content: "";
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+/* @media only screen and (min-width: 576px) and (max-width: 767px) .chart-wrap ul li {
+    width: 50%;
+}
+
+@media (max-width: 767.98px)
+.chart-wrap ul li {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .content-container {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .content-container h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .content-container p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .buttons-container {
-    display: flex;
-  }
-  
-  .sign-up-button,
-  .connect-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .sign-up-button {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .connect-button {
-    background-color: #2196f3;
-    color: #fff;
-  }
-  
-  .sign-up-button:hover,
-  .connect-button:hover {
-    opacity: 0.8;
-  }
-  
+} */

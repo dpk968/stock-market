@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './RegistrationForm.css'; 
 
 const RegistrationForm = () => {
@@ -8,6 +8,12 @@ const RegistrationForm = () => {
     email: '',
     password: '',
   });
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    // return () => {
+    //   document.body.style.overflow = 'visible';
+    // };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

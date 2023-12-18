@@ -1,0 +1,15 @@
+.colorWhite{
+    color: #fff;
+}
+.navBarHeader{
+    background: linear-gradient(to right top, #001F81, #000125);
+}
+.navBarLogo{
+    display: flex;
+}
+.colorWhite:hover{
+    color: aqua;
+}
+.colorWhite:visited{
+    color: #fff;
+}
