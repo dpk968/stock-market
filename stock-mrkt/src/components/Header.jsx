@@ -23,10 +23,10 @@ const Header = () => {
 
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
-          <Nav.Link className='colorWhite' href="#home"><Link to="/">Home</Link></Nav.Link>
-            <Nav.Link className='colorWhite' href="#about"><Link to="/about">About</Link></Nav.Link>
-            <Nav.Link className='colorWhite' href="#contact"><Link to="/contact">Contact</Link></Nav.Link>
-            <Nav.Link className='colorWhite' href="#contact"><Link to="/signup">Sign Up</Link></Nav.Link>
+          <Nav.Link className='colorWhite' ><Link to="/">Home</Link></Nav.Link>
+            <Nav.Link className='colorWhite'><Link to="/about">About</Link></Nav.Link>
+            <Nav.Link className='colorWhite' ><Link to="/contact">Contact</Link></Nav.Link>
+            <Nav.Link className='colorWhite' ><Link to="/signup">Sign Up</Link></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

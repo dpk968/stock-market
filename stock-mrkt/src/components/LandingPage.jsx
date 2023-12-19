@@ -75,70 +75,70 @@ const LandingPage = () => {
         <div className="all-team">
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+              <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>
 
           <div className="team-div">
             <div className="upper">
-              <img src="" alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcset="" />
             </div>
             <div className="team-about">
-              <h2>Cameron Williamson</h2>
+              <h6>Cameron Williamson</h6>
               <span>Product Manager</span>
             </div>
           </div>

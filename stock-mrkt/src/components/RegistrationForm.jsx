@@ -10,9 +10,9 @@ const RegistrationForm = () => {
   });
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    // return () => {
-    //   document.body.style.overflow = 'visible';
-    // };
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
   }, []);
 
   const handleSubmit = (e) => {
