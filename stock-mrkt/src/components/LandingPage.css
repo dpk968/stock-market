@@ -1,5 +1,6 @@
 .landing-page {
   background: linear-gradient(to right top, #02121f, #001f81);
+  /* background-image: url('../img/starImage.jpg'); */
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -23,7 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  /* flex: 1; */
   padding: 20px;
   /* margin:30px; */
 }
@@ -36,6 +37,11 @@
 .content-container p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+}
+.token-allocation{
+  width: 40%;
+  color: #fff;
+  margin: 100px 0px;
 }
 
 .buttons-container {
@@ -80,20 +86,24 @@
 .right-content {
   padding: 0 20px;
 }
+
 .small-ball-anime img {
   position: relative;
   animation: moveBackAndForth 5s ease-in-out infinite;
 }
 
 @keyframes moveBackAndForth {
+
   0%,
   100% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(100px);
   }
 }
+
 .paragraph-with-dots {
   position: relative;
   padding: 20px;
@@ -149,35 +159,84 @@
   background-size: cover;
   padding: 130px 0;
 }
+
 .container {
-  max-width: 550px;
-  min-width: 400px;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+
 .chart-statics {
   background: #0b1d33;
-  border-radius: 20px;
-  padding: 50px 45px;
-  text-align: center;
+    border-radius: 20px;
+    padding: 26px 30px;
+    text-align: center;
+    width: 45%;
 }
+
 .chart-statics img {
   margin-bottom: 75px;
 }
+
 .chart-statics ul {
   list-style-type: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
+
 li {
   display: flex;
   align-items: center;
-  width: 48%; 
+  width: 48%;
   margin-bottom: 10px;
   color: #fff;
 }
 
-li::before {
+.chart-statics ul li {
+  position: relative;
+  /* margin: 5px; */
+  width: 40%;
+  left: 5%;
+  /* min-height: 150px; */
+}
+
+.chart-statics ul li::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  background: #005F73;
+  height: 15px;
+  /* background-color: lightgrey; */
+  left: -10%;
+  border-radius: 50%;
+}
+
+.chart-statics ul li:nth-child(2):before {
+  background: #f72585;
+}
+.chart-statics ul li:nth-child(3):before {
+  background: #5DD400;
+}
+.chart-statics ul li:nth-child(4):before {
+  background: #FF9700;
+}
+.chart-statics ul li:nth-child(5):before {
+  background: #00C4F4;
+}
+.chart-statics ul li:nth-child(6):before {
+  background: #007FF4;
+}
+.team{
+  background-image: url("../img/starImage.jpg");
+  background-position: 50%;
+  background-size: cover;
+  padding: 130px 0;
+  padding: 5%;
+  color: #fff;
+}
+/* li::before {
   content: '\2022'; 
   color: skyblue; 
   font-size: 1.5em; 
@@ -193,7 +252,7 @@ li::before {
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
-}
+} */
 
 /* @media only screen and (min-width: 576px) and (max-width: 767px) .chart-wrap ul li {
     width: 50%;

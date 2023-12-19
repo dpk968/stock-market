@@ -16,16 +16,6 @@ function App() {
         <Route path="/signup" element={<RegistrationForm/>}/>
       </Routes>
     </Router>
-
-
-    // <Routes>
-    //   <div>
-    //     <Header></Header>
-    //     <Route path="/" exact component={LandingPage} />
-    //     <Route path="/about" component={AboutUs} />
-    //     <Route path="/contact" component={RegistrationForm} />
-    //   </div>
-    // </Routes>
   );
 }
 
