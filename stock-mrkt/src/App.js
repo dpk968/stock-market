@@ -5,6 +5,7 @@ import RegistrationForm from './components/RegistrationForm';
 import AboutUs from './components/AboutUs';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer'
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
     <Router>
         <Header/>
       <Routes>
-        <Route path="/" exact element={<LandingPage />} />
+        <Route path="/" exact element={<Dashboard />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/signup" element={<RegistrationForm/>}/>
       </Routes>
