@@ -29,10 +29,10 @@ const LandingPage = () => {
       <div className="home-screen-second-panel">
         <div className="left-content">
           <div className="small-ball-anime">
-            <img src={require("../img/small-ball-removebg-preview.png")} alt="" srcset="" />
+            <img src={require("../img/small-ball-removebg-preview.png")} alt="" srcSet="" />
           </div>
           <div className="bitcoin-img">
-            <img src={require("../img/about_img01.92aec9a4de2f58631598-removebg-preview.png")} alt="" srcset="" />
+            <img src={require("../img/about_img01.92aec9a4de2f58631598-removebg-preview.png")} alt="" srcSet="" />
           </div>
         </div>
         <div className="right-content">
@@ -75,7 +75,7 @@ const LandingPage = () => {
         <div className="all-team">
           <div className="team-div">
             <div className="upper">
-              <img src={require("../img/team_img01.png")} alt="" srcset="" />
+              <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -85,7 +85,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -95,7 +95,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -105,7 +105,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -115,7 +115,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -125,7 +125,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>
@@ -135,7 +135,7 @@ const LandingPage = () => {
 
           <div className="team-div">
             <div className="upper">
-            <img src={require("../img/team_img01.png")} alt="" srcset="" />
+            <img src={require("../img/team_img01.png")} alt="" srcSet="" />
             </div>
             <div className="team-about">
               <h6>Cameron Williamson</h6>

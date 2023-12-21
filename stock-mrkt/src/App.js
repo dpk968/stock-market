@@ -6,6 +6,7 @@ import AboutUs from './components/AboutUs';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer'
 import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
         <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<RegistrationForm/>}/>
       </Routes>
       <Footer/>

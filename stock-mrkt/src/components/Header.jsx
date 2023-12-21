@@ -1,37 +1,36 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import D2 from '../img/D2.png'
-import './Header.css'
-import { Navbar, Container, Nav } from 'react-bootstrap'; 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import D2 from "../img/D2.png";
+import "./Header.css";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar className='navBarHeader'>
-      <Container>
-        <Navbar.Brand className='navBarLogo' href="#home">
-        <img
-          src={D2}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt="Logo"
-        />
-        <p className='colorWhite'> Deepak</p>
-      </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <div className="navbar">
+      <div className="logo">
+        <img src={require("../img/D2.png")} alt="Logo" />
+        <div className="company-name">Deepak</div>
+      </div>
 
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav>
-          <Nav.Link className='colorWhite' ><Link to="/">Home</Link></Nav.Link>
-            <Nav.Link className='colorWhite'><Link to="/about">About</Link></Nav.Link>
-            <Nav.Link className='colorWhite'><Link to="/dashboard">Dashboard</Link></Nav.Link>
-            <Nav.Link className='colorWhite' ><Link to="/contact">Contact</Link></Nav.Link>
-            <Nav.Link className='colorWhite' ><Link to="/signup">Sign Up</Link></Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      <ul className="nav-links">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <div className="search-box">
+            <input type="text" className="search-input" placeholder="Search..." />
+            <button className="search-btn">Search</button>
+          </div>
+        </li>
+      </ul>
+    </div>
   );
 };
 

@@ -1,23 +1,22 @@
-
-import React, { useState,useEffect } from 'react';
-import './RegistrationForm.css'; 
+import React, { useState, useEffect } from "react";
+import "./RegistrationForm.css";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'visible';
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "visible";
+  //   };
+  // }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
+    console.log("Form Submitted:", formData);
   };
 
   const handleChange = (e) => {
@@ -62,7 +61,6 @@ const RegistrationForm = () => {
           onChange={handleChange}
           required
         />
-
         <button type="submit">Register</button>
       </form>
     </div>
