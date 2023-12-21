@@ -1,10 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import Highcharts from 'highcharts'
 import './Dashboard.css'
 
 const Dashboard = () => {
 
-  useEffect(() => {
+  const [data,setData] = useState();
+
+  const fetchCompanytechnical  = () => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.iex.cloud/v1/data/core/advanced_stats/msft?token=pk_ddeddb3e6e0c4da8b1211716c064c37e');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+    console.log("data->"+data)
+
+  }
+  const chart = () =>{
+
+
     Highcharts.chart('ch', {
       title: {
         text: 'Line Chart',
@@ -43,7 +64,12 @@ const Dashboard = () => {
         data: [10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110, 120, 10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110, 120, 10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110, 120, 10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110, 120]
       }]
     });
+  }
 
+
+  useEffect(() => {
+    fetchCompanytechnical();
+    chart()
   }, []);
   return (
     <div className='dashboard'>
