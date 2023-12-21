@@ -185,7 +185,7 @@
   justify-content: space-evenly;
 }
 
-li {
+.chart li {
   display: flex;
   align-items: center;
   width: 48%;

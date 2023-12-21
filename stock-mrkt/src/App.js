@@ -13,7 +13,8 @@ function App() {
     <Router>
         <Header/>
       <Routes>
-        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/" exact element={<LandingPage />} />
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/about" element={<AboutUs />} />
         <Route path="/signup" element={<RegistrationForm/>}/>
       </Routes>
