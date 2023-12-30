@@ -88,5 +88,5 @@ Happy coding!
 
 ## Screenshots
 
-![App Screenshot](https://github.com/akhilesh-sahu12/stocks-market/blob/master/screenshots/photo1703953331%20(9).jpeg)
-![App Screenshot](https://github.com/akhilesh-sahu12/stocks-market/blob/master/screenshots/photo1703953331%20(7).jpeg)
+![App Screenshot](https://github.com/dpk968/stock-market/blob/master/stockmarketapp/screenshots/Screenshot_2023-12-30-21-41-57-99_109088c9951399c8c540b86cb831c394.jpg)
+![App Screenshot](https://github.com/dpk968/stock-market/blob/master/stockmarketapp/screenshots/Screenshot_2023-12-30-23-20-46-90_109088c9951399c8c540b86cb831c394.jpg)
