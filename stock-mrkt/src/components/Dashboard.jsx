@@ -1,178 +1,208 @@
 import React, { useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import "./Dashboard.css";
+import News from "./News";
 
 const Dashboard = () => {
   const [data, setData] = useState();
+  const [comp, setComp] = useState('aapl')
+  const [compData, setCompData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const fetchCompanytechnical = () => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.iex.cloud/v1/data/core/advanced_stats/msft?token=pk_ddeddb3e6e0c4da8b1211716c064c37e"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchCompData = async (comp) => {
+    try {
+      const response = await fetch(
+        `https://api.iex.cloud/v1/data/core/company/${comp}?token=pk_85f727a2802d4a7d9de64485baeb569b`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    };
-    fetchData();
-    console.log("data->" + data);
+      const data1 = await response.json();
+      setCompData(data1);
+      console.log("data1", data1);
+    } catch (error) {
+      console.error("Error fetching company data:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const fetchCompanytechnical = async (comp) => {
+    try {
+      const response = await fetch(
+        `https://api.iex.cloud/v1/data/core/iex_deep/${comp}?token=pk_85f727a2802d4a7d9de64485baeb569b`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const result = await response.json();
+      setData(result);
+      console.log("data", result);
+    } catch (error) {
+      console.error("Error fetching technical data:", error);
+    }
+  };
+  const tradePrice =
+    data && data[0] && data[0].trades ? data[0].trades.map((trade) => trade.price) : [];
+  console.log("tradePrice: ", tradePrice);
+
+  const tradeTime =
+    data && data[0] && data[0].trades ? data[0].trades.map((trade) => trade.timestamp) : [];
+
+  const convertTimestampToTime = (timestamp) => {
+    const date = new Date(timestamp);
+    const hours = date.getHours();
+    const minutes = '0' + date.getMinutes();
+    const seconds = '0' + date.getSeconds();
+    const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    return formattedTime;
+  };
+
+  const timestamps = tradeTime || [];
+  const Times = timestamps.map(convertTimestampToTime);
+  console.log(Times);
+
+  const handleSearch = async () => {
+    try {
+      const companyResponse = await fetchCompData(comp);
+      setCompData(companyResponse);
+
+      const tradeResp = await fetchCompanytechnical(comp);
+      setData(tradeResp);
+
+      chart();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+
   const chart = () => {
-    Highcharts.chart("ch", {
-      title: {
-        text: "Line Chart",
-        style: {
-          color: "#FFF",
+    if (data && data[0] && data[0].trades) {
+      Highcharts.chart("ch", {
+        title: {
+          text: "Line Chart",
+          style: {
+            color: "#FFF",
+          },
         },
-      },
-      chart: {
-        backgroundColor: "#0b1d33",
-      },
-      xAxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
+        chart: {
+          backgroundColor: "#0b1d33",
+        },
+        xAxis: {
+          categories: Times,
+        },
+        yAxis: {
+          labels: {
+            style: {
+              color: "black",
+            },
+          },
+          title: {
+            text: "Prices",
+          },
+        },
+        series: [
+          {
+            name: "Series 1",
+            data: tradePrice,
+          },
         ],
-      },
-      xAxis: {
-        labels: {
-          style: {
-            color: "#FFF",
-          },
-        },
-        title: {
-          text: "X Axis",
-        },
-      },
-      yAxis: {
-        labels: {
-          style: {
-            color: "#FFF",
-          },
-        },
-        title: {
-          text: "Values",
-        },
-      },
-      series: [
-        {
-          name: "Series 1",
-          data: [
-            10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110, 120, 10, 20, 25, 20,
-            50, 30, 70, 80, 10, 110, 110, 120, 10, 20, 25, 20, 50, 30, 70, 80,
-            10, 110, 110, 120, 10, 20, 25, 20, 50, 30, 70, 80, 10, 110, 110,
-            120,
-          ],
-        },
-      ],
-      accessibility: {
-        enabled: false,
-      },
-    });
+      });
+    }
   };
 
   useEffect(() => {
-    fetchCompanytechnical();
-    chart();
+    fetchCompData(comp);
+    fetchCompanytechnical(comp);
+ 
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      chart();
+    }
+  }, [data, isLoading]);
+
   return (
     <div className="dashboard">
-      <div className="dashboard-container">
-        <div className="left-dashboard">
-          <div className="heading-container">
-            <h1>APL Apollo Tubes Ltd</h1>
-          </div>
-          <div className="table-container">
-            <div className="left-table">
-              <ul>
-                <li>Market Cap₹ 43,486 Cr.</li>
-                <li>ROCE 27.0 %</li>
-                <li>Stock P/E 75.2</li>
-              </ul>
-            </div>
-            <div className="center-table">
-              <ul>
-                <li>Market Cap₹ 43,486 Cr.</li>
-                <li>ROCE 27.0 %</li>
-                <li>Stock P/E 75.2</li>
-              </ul>
-            </div>
-            <div className="right-table">
-              <ul>
-                <li>Market Cap₹ 43,486 Cr.</li>
-                <li>ROCE 27.0 %</li>
-                <li>Stock P/E 75.2</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="right-dashboard">
-          <div className="news-panel">
-            <h4>NEWS</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur beatae, excepturi dolorum tenetur facere corrupti at
-              quam autem consequatur dolor non praesentium vel.
-            </p>
-          </div>
-        </div>
-        {/* <div className="upper-body">
-                <h1>Utique Enterprises Ltd</h1>
-            </div>
-            <div className="lower-table"></div> */}
+      <div className="search-box">
+        <input type="text" className="search-input" placeholder="Search by company symbol"
+          value={comp}
+          onChange={(e) => setComp(e.target.value)} />
+        <button onClick={handleSearch}>Search</button>
       </div>
-      <div id="ch" style={{ width: "100%", height: "50%" }}></div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
 
-      <div className="dashboard-table">
-        <table className="margin-table">
-          <thead>
-            <tr>
-              <th>Header 1</th>
-              <th>Header 2</th>
-              <th>Header 3</th>
-              <th>Header 3</th>
-              <th>Header 3</th>
-              <th>Header 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Row 1, Col 1</td>
-              <td>Row 1, Col 2</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-            </tr>
-            <tr>
-              <td>Row 1, Col 1</td>
-              <td>Row 1, Col 2</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-              <td>Row 1, Col 3</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <div className="dashboard-container">
+            <div className="left-dashboard">
+              <div className="heading-container">
+                <h1>Company Details section</h1>
+              </div>
+              <div className="table-container">
+                <div className="left-table">
+                   <ul>
+                    <li>Name ={compData[0].companyName}</li>
+                    <li>CEO ={compData[0].ceo}</li>
+                    <li>Total Employees ={compData[0].employees}</li>
+                  </ul>
+                </div>
+                <div className="center-table">
+                  <ul>
+                    <li>Symbol = {compData[0].symbol}</li>
+                    <li>Exchange = {compData[0].exchange}</li>
+                    <li>W0ebsite  =<a href={compData[0].website} target="_blank" rel="noopener noreferrer">
+                      {compData[0].website}
+                    </a></li>
+                  </ul> 
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="right-dashboard">
+              <div className="news-panel">
+                <News />
+
+              </div>
+            </div>
+          </div>
+          <div id="ch" style={{ width: "100%", height: "50%" }}></div>
+
+          <div className="dashboard-table">
+            <table className="margin-table">
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Last Sale Price</th>
+                  <th>Market Percent</th>
+                  <th>Volume</th>
+                  <th>Last Sale Time</th>
+                  <th>Last Sale Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                 {data.map((stock, index) => (
+              <tr key={index}>
+                <td>{stock.symbol}</td>
+                <td>{stock.lastSalePrice}</td>
+                <td>{stock.marketPercent}</td>
+                <td>{stock.volume}</td>
+                <td>{new Date(stock.lastSaleTime).toLocaleString()}</td>
+                <td>{stock.lastSaleSize}</td>
+              </tr>
+            ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
+
   );
 };
 

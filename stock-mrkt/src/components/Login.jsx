@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./RegistrationForm.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,21 +10,18 @@ const Login = () => {
     email: "",
     password: "",
   });
-//   useEffect(() => {
-//     document.body.style.overflow = "hidden";
-//     return () => {
-//       document.body.style.overflow = "visible";
-//     };
-//   }, []);
+  const { userLogin } = useAuth();
+  const [logged, setLogged] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    setFormData({
-      username: "",
-      email: "",
-      password: "",
-    })
+    if (formData.username === "deepak" && formData.password === "deepak") {
+      userLogin();
+      setLogged(true);
+      alert("Login successfully");
+    } else {
+      alert("Invalid Credentials");
+    }
   };
 
   const handleChange = (e) => {
@@ -33,9 +32,13 @@ const Login = () => {
     });
   };
 
+  if (logged) {
+    return <Navigate to="/dashboard" />;
+  }
+
   return (
     <div className="registration-container">
-      <form className="registration-form" onSubmit={handleSubmit}>
+      <form className="registration-form" onSubmit={handleLogin}>
         <h2>Login</h2>
 
         <label htmlFor="username">Username</label>
@@ -44,16 +47,6 @@ const Login = () => {
           id="username"
           name="username"
           value={formData.username}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="email">Email address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
           onChange={handleChange}
           required
         />
@@ -68,10 +61,12 @@ const Login = () => {
           required
         />
 
-        <button type="submit">Login</button>
-      <div className="signup-link">
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </div>
+        <button type="button" onClick={handleLogin}>
+          Login
+        </button>
+        <div className="signup-link">
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </div>
       </form>
     </div>
   );

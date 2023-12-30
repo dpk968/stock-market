@@ -7,20 +7,25 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Footer'
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import { AuthProvider } from './context/AuthContext';
+import AuthGuard   from './gaurds/AuthGaurd';
 
 function App() {
   return (
-
+<AuthProvider>
     <Router>
         <Header/>
       <Routes>
         <Route path="/" exact element={<LandingPage />} />
-        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route element={<AuthGuard />}>
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        </Route>
         <Route path="/signup" element={<RegistrationForm/>}/>
       </Routes>
       <Footer/>
     </Router>
+    </AuthProvider>
   );
 }
 

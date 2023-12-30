@@ -4,8 +4,17 @@ import D2 from "../img/D2.png";
 import "./Header.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Header = () => {
+  const { authenticated,logout } = useAuth();
+
+
+  const handleLogout = () => {
+    logout();
+    console.log("logout");
+  };
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -20,15 +29,17 @@ const Header = () => {
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <div className="search-box">
-            <input type="text" className="search-input" placeholder="Search..." />
-            <button className="search-btn">Search</button>
-          </div>
-        </li>
+        {authenticated ? (
+          <li>
+            <Link to="/" onClick={handleLogout}>
+              Logout
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        )}
       </ul>
     </div>
   );
